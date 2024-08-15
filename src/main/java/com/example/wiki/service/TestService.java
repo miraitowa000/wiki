@@ -12,6 +12,6 @@ public class TestService {
     private TestMapper testMapper;
     public List<Test> list()
     {
-        return testMapper.list();
+        return testMapper.selectAll();
     }
 }
