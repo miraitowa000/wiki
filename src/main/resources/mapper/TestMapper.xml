@@ -31,9 +31,8 @@
     select id, name, password
     from test
   </select>
-
-    <select id="list" resultType="com.example.wiki.domain.Test">
-        select * from test
-    </select>
+  <select id="list" resultType="com.example.wiki.domain.Test">
+      select * from test
+  </select>
 
 </mapper>

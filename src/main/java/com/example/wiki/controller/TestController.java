@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
+@RequestMapping("/v1")
 public class TestController {
     @Resource
     private TestService testService;
