@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.wiki.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.example.wiki.domain.Users">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="user_img" jdbcType="VARCHAR" property="userImg" />
+    <result column="user_mobile" jdbcType="VARCHAR" property="userMobile" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_birth" jdbcType="TIMESTAMP" property="userBirth" />
+    <result column="user_regtime" jdbcType="TIMESTAMP" property="userRegtime" />
+    <result column="user_modtime" jdbcType="TIMESTAMP" property="userModtime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from users
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertUser" parameterType="com.example.wiki.domain.Users">
+    insert into users ( username, password,
+       user_regtime, user_modtime
+      )
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+       #{userRegtime,jdbcType=TIMESTAMP}, #{userModtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.wiki.domain.Users">
+    update users
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      user_img = #{userImg,jdbcType=VARCHAR},
+      user_mobile = #{userMobile,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_birth = #{userBirth,jdbcType=TIMESTAMP},
+      user_regtime = #{userRegtime,jdbcType=TIMESTAMP},
+      user_modtime = #{userModtime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <select id="queryUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select user_id, username, password, nickname, realname, user_img, user_mobile, user_email, 
+    user_sex, user_birth, user_regtime, user_modtime
+    from users
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select user_id, username, password, nickname, realname, user_img, user_mobile, user_email, 
+    user_sex, user_birth, user_regtime, user_modtime
+    from users
+  </select>
+</mapper>
