@@ -45,12 +45,13 @@
 <!--               enableUpdateByExample="false" selectByExampleQueryId="false">-->
 <!--            &lt;!&ndash;是否使用实际列名,默认为false&ndash;&gt;-->
 <!--            <property name="useActualColumnNames" value="false"/>-->
+<!--            <property name="overwrite" value="true" />-->
 <!--        </table>-->
-        <table tableName="ebook"
+        <table tableName="users"
                enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false" selectByExampleQueryId="false">
             <!--是否使用实际列名,默认为false-->
-            <property name="useActualColumnNames" value="false"/>
+            <property name="overwrite" value="true" />
         </table>
     </context>
 </generatorConfiguration>
