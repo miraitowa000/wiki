@@ -7,7 +7,7 @@
         <property name="javaFileEncoding" value="UTF-8"/>
         <commentGenerator>
             <!-- 是否生成注释 true： 否： false: 是 -->
-            <property name="suppressAllComments" value="true"/>
+            <property name="suppressAllComments" value="false"/>
             <!-- 是否去除时间戳 true：是 ： false:否 -->
             <property name="suppressDate" value="true"/>
             <!-- 是否添加数据库表中字段的注释 true：是 ： false:否，只有当suppressAllComments 为 false 时才能生效 -->
@@ -47,7 +47,7 @@
 <!--            <property name="useActualColumnNames" value="false"/>-->
 <!--            <property name="overwrite" value="true" />-->
 <!--        </table>-->
-        <table tableName="users"
+        <table tableName="%"
                enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false" selectByExampleQueryId="false">
             <!--是否使用实际列名,默认为false-->
