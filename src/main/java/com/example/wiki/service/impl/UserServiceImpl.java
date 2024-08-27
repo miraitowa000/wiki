@@ -5,6 +5,9 @@ import com.example.wiki.domain.Users;
 import com.example.wiki.dto.ResultVO;
 import com.example.wiki.mapper.UsersMapper;
 import com.example.wiki.service.UsersService;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -54,7 +57,14 @@ public class UserServiceImpl implements UsersService {
         }else {
             String md5Password = MD5Utils.md5(password);
             if(md5Password.equals(user.getPassword())){
-                return new ResultVO(10000,"登录成功",user);
+                JwtBuilder jwtBuilder = Jwts.builder();
+                String token = jwtBuilder.setSubject(user.getUsername())
+                        .setIssuedAt(new Date())
+                        .setId(user.getUserId().toString())
+                        .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
+                        .signWith(SignatureAlgorithm.HS256, "secret")
+                        .compact();
+                return new ResultVO(10000,token,user);
             }else {
                 return new ResultVO(10001,"登录失败，密码错误",null);
             }
