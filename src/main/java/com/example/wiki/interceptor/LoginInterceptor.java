@@ -17,8 +17,11 @@ import java.io.PrintWriter;
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getParameter("token");
-        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<"+ token);
+        String method = request.getMethod();
+        if (method.equals("OPTIONS")) {
+            return true;
+        }
+        String token = request.getHeader("token");
         if (token == null) {
             ResultVO resultVO = new ResultVO(401, "请先登录", null);
             doResponse(response, resultVO);
