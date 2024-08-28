@@ -75,4 +75,22 @@
     create_time, update_time
     from index_img
   </select>
+
+  <select id="selectIndexImg" resultMap="BaseResultMap">
+    SELECT
+    img_id,
+    img_url,
+    img_bg_color,
+    prod_id,
+    category_id,
+    index_type,
+    seq,
+    `status`,
+    create_time,
+    update_time
+    FROM
+    index_img
+    WHERE `status`=1
+    ORDER BY seq
+  </select>
 </mapper>

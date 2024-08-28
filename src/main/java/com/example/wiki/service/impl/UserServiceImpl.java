@@ -2,7 +2,7 @@ package com.example.wiki.service.impl;
 
 import com.example.wiki.common.utils.MD5Utils;
 import com.example.wiki.domain.Users;
-import com.example.wiki.dto.ResultVO;
+import com.example.wiki.common.vo.ResultVO;
 import com.example.wiki.mapper.UsersMapper;
 import com.example.wiki.service.UsersService;
 import io.jsonwebtoken.JwtBuilder;

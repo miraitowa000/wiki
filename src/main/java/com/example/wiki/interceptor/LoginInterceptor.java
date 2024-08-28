@@ -1,6 +1,6 @@
 package com.example.wiki.interceptor;
 
-import com.example.wiki.dto.ResultVO;
+import com.example.wiki.common.vo.ResultVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtParser;

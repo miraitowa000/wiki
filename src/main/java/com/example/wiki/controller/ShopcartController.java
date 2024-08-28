@@ -1,6 +1,6 @@
 package com.example.wiki.controller;
 
-import com.example.wiki.dto.ResultVO;
+import com.example.wiki.common.vo.ResultVO;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import org.springframework.web.bind.annotation.GetMapping;

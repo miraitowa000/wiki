@@ -1,7 +1,5 @@
-package com.example.wiki.dto;
-import lombok.AllArgsConstructor;
+package com.example.wiki.common.vo;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class ResultVO {

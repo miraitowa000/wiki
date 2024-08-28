@@ -1,7 +1,7 @@
 package com.example.wiki.controller;
 
 import com.example.wiki.dto.RegisterRequestDto;
-import com.example.wiki.dto.ResultVO;
+import com.example.wiki.common.vo.ResultVO;
 import com.example.wiki.service.UsersService;
 import org.springframework.web.bind.annotation.*;
 
