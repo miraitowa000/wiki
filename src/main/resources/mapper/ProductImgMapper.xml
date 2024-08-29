@@ -65,4 +65,8 @@
     select id, item_id, url, sort, is_main, create_time, update_time
     from product_img
   </select>
+
+  <select id="selectByProductId" resultMap="BaseResultMap">
+    select id, item_id, url, sort, is_main, create_time, update_time from product_img where item_id = #{productId}
+  </select>
 </mapper>
