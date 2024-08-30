@@ -49,4 +49,6 @@ public interface ProductMapper {
     int updateByPrimaryKey(Product record);
 
     List<ProductVo> selectAllProduct();
+    // 查询指定一级类别下销量最高的6个商品
+    List<ProductVo> selectTop6ByCategory(int cid);
 }

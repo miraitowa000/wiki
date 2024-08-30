@@ -18,4 +18,10 @@ public class CategoryController {
         return categoryService.selectAllCategory();
     }
 
+    @GetMapping("/category-recommends")
+    public ResultVO listRecommendProductsByCategory()
+    {
+        return categoryService.listFirstLevelCategories();
+    }
+
 }

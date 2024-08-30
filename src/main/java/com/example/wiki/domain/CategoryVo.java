@@ -101,6 +101,16 @@ public class CategoryVo {
 
     private List<CategoryVo> categories;
 
+    private List<ProductVo> products;
+
+    public List<ProductVo> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductVo> products) {
+        this.products = products;
+    }
+
     public List<CategoryVo> getCategories() {
         return categories;
     }

@@ -2,6 +2,7 @@ package com.example.wiki.mapper;
 
 import com.example.wiki.domain.Category;
 import com.example.wiki.domain.CategoryVo;
+import com.example.wiki.domain.ProductVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -52,4 +53,6 @@ public interface CategoryMapper {
     public List<CategoryVo> selectAllCategory();
 
     public List<CategoryVo> selectCategoryVo(int parentId);
+
+    List<CategoryVo> selectFirstLevelCategories();
 }

@@ -2,6 +2,7 @@ package com.example.wiki.service.impl;
 
 import com.example.wiki.common.vo.ResultVO;
 import com.example.wiki.domain.CategoryVo;
+import com.example.wiki.domain.ProductVo;
 import com.example.wiki.mapper.CategoryMapper;
 import com.example.wiki.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,13 @@ public class CategoryServiceImpl implements CategoryService {
         return resultVO;
 
     }
+
+    @Override
+    public ResultVO listFirstLevelCategories() {
+        List<CategoryVo> categories = categoryMapper.selectFirstLevelCategories();
+        ResultVO resultVO = new ResultVO(200,"success",categories);
+        return resultVO;
+    }
+
 
 }

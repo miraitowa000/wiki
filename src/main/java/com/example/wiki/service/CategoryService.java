@@ -4,4 +4,6 @@ import com.example.wiki.common.vo.ResultVO;
 
 public interface CategoryService {
     public ResultVO selectAllCategory();
+
+    public ResultVO listFirstLevelCategories();
 }
