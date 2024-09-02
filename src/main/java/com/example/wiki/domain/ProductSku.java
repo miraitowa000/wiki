@@ -1,6 +1,7 @@
 package com.example.wiki.domain;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Database Table Remarks:
@@ -118,7 +119,7 @@ public class ProductSku {
      *
      * @mbg.generated
      */
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * Database Column Remarks:
@@ -129,7 +130,7 @@ public class ProductSku {
      *
      * @mbg.generated
      */
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
     /**
      * Database Column Remarks:
@@ -366,7 +367,7 @@ public class ProductSku {
      *
      * @mbg.generated
      */
-    public LocalDateTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
@@ -378,7 +379,7 @@ public class ProductSku {
      *
      * @mbg.generated
      */
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -390,7 +391,7 @@ public class ProductSku {
      *
      * @mbg.generated
      */
-    public LocalDateTime getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
@@ -402,7 +403,7 @@ public class ProductSku {
      *
      * @mbg.generated
      */
-    public void setUpdateTime(LocalDateTime updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 

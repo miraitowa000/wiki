@@ -70,7 +70,7 @@
     select sku_id, product_id, sku_name, sku_img, untitile, original_price, sell_price, 
     discounts, stock, create_time, update_time, status
     from product_sku
-    where sku_id = #{skuId,jdbcType=VARCHAR}
+    where product_id = #{productId,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--

@@ -3,6 +3,7 @@ package com.example.wiki.mapper;
 import com.example.wiki.domain.Product;
 import com.example.wiki.domain.ProductVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -51,4 +52,6 @@ public interface ProductMapper {
     List<ProductVo> selectAllProduct();
     // 查询指定一级类别下销量最高的6个商品
     List<ProductVo> selectTop6ByCategory(int cid);
+
+    List<ProductVo> selectProductDetail(@Param("productId")  String productId);
 }

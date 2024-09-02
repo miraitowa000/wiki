@@ -15,6 +15,16 @@ public class ProductVo {
 
     private List<ProductImg> productImg;
 
+    private List<ProductSku> productSku;
+
+    public List<ProductSku> getProductSku() {
+        return productSku;
+    }
+
+    public void setProductSku(List<ProductSku> productSku) {
+        this.productSku = productSku;
+    }
+
     public List<ProductImg> getProductImg() {
         return productImg;
     }

@@ -55,7 +55,7 @@
     -->
     select id, item_id, url, sort, is_main, create_time, update_time
     from product_img
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{item_id,jdbcType=VARCHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!--
