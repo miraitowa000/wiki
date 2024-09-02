@@ -83,4 +83,10 @@
     packaging_method, weight, storage_method, eat_method, create_time, update_time
     from product_params
   </select>
+  <select id="selectByProductId" resultMap="BaseResultMap">
+    select param_id, product_id, product_place, foot_penod, brand, factory_name, factory_address,
+    packaging_method, weight, storage_method, eat_method, create_time, update_time
+    from product_params
+    where product_id = #{productId}
+  </select>
 </mapper>

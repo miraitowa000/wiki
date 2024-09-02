@@ -17,4 +17,9 @@ public class ProductDetailController {
     public ResultVO selectProductDetail(@RequestParam(value = "productId") String productId){
         return productDetailService.selectProductDetail(productId);
     }
+
+    @GetMapping("/params")
+    public ResultVO getParamsByProductId(@RequestParam(value = "productId") String productId){
+        return productDetailService.getParamsByProductId(productId);
+    }
 }
