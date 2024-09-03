@@ -16,7 +16,6 @@ public class ProductVo {
     private List<ProductImg> productImg;
 
     private List<ProductSku> productSku;
-
     public List<ProductSku> getProductSku() {
         return productSku;
     }

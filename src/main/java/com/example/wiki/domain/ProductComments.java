@@ -1,6 +1,7 @@
 package com.example.wiki.domain;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Database Table Remarks:
@@ -129,7 +130,7 @@ public class ProductComments {
      *
      * @mbg.generated
      */
-    private LocalDateTime sepcName;
+    private Date sepcName;
 
     /**
      * Database Column Remarks:
@@ -162,7 +163,7 @@ public class ProductComments {
      *
      * @mbg.generated
      */
-    private LocalDateTime replyTime;
+    private Date replyTime;
 
     /**
      * Database Column Remarks:
@@ -423,7 +424,7 @@ public class ProductComments {
      *
      * @mbg.generated
      */
-    public LocalDateTime getSepcName() {
+    public Date getSepcName() {
         return sepcName;
     }
 
@@ -435,7 +436,7 @@ public class ProductComments {
      *
      * @mbg.generated
      */
-    public void setSepcName(LocalDateTime sepcName) {
+    public void setSepcName(Date sepcName) {
         this.sepcName = sepcName;
     }
 
@@ -495,7 +496,7 @@ public class ProductComments {
      *
      * @mbg.generated
      */
-    public LocalDateTime getReplyTime() {
+    public Date getReplyTime() {
         return replyTime;
     }
 
@@ -507,7 +508,7 @@ public class ProductComments {
      *
      * @mbg.generated
      */
-    public void setReplyTime(LocalDateTime replyTime) {
+    public void setReplyTime(Date replyTime) {
         this.replyTime = replyTime;
     }
 

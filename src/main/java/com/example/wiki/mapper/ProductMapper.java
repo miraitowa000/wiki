@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface ProductMapper {
     /**
@@ -54,4 +56,7 @@ public interface ProductMapper {
     List<ProductVo> selectTop6ByCategory(int cid);
 
     List<ProductVo> selectProductDetail(@Param("productId")  String productId);
+
+    List<ProductVo> getProductCommentsByKeyword(@Param("params") Map<String,Object> params);
+
 }

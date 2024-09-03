@@ -22,4 +22,17 @@ public class ProductDetailController {
     public ResultVO getParamsByProductId(@RequestParam(value = "productId") String productId){
         return productDetailService.getParamsByProductId(productId);
     }
+
+    @GetMapping("/comments")
+    public ResultVO getCommentsByProductId(@RequestParam(value = "productId") String productId){
+        return productDetailService.getCommentsByProductId(productId);
+    }
+
+    @GetMapping("/query")
+    public ResultVO selectCommentsByKeyword(@RequestParam(value = "productId") String productId,
+                                           @RequestParam(value = "userId",required = false) String userId,
+                                           @RequestParam(value = "commLevel",required = false) String commLevel,
+                                           @RequestParam(value = "commType",required = false) String commType){
+        return productDetailService.selectCommentsByKeyword(productId,userId,commLevel,commType);
+    }
 }
