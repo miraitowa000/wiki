@@ -53,4 +53,8 @@
     user_sex, user_birth, user_regtime, user_modtime
     from users
   </select>
+  
+<!--  <select id="queryUserOrder" resultType="com.example.wiki.dto.UserDto">-->
+<!--    SELECT u.username,u.nickname,o.order_id,o.receiver_name from users u left JOIN orders o on u.user_id = o.user_id where o.user_id=#{userId}-->
+<!--  </select>-->
 </mapper>

@@ -24,4 +24,10 @@ public class UsersController {
         ResultVO resultVO = usersService.userRegister(registerRequestDto.getUsername(),registerRequestDto.getPassword());
         return resultVO;
     }
+
+    @GetMapping("/order")
+    public ResultVO queryUserOrder(@RequestParam("userId") String userId) {
+        ResultVO resultVO = usersService.queryUserOrder(userId);
+        return resultVO;
+    }
 }

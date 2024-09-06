@@ -1,8 +1,10 @@
 package com.example.wiki.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.wiki.common.utils.MD5Utils;
 import com.example.wiki.domain.Users;
 import com.example.wiki.common.vo.ResultVO;
+import com.example.wiki.dto.UserDto;
 import com.example.wiki.mapper.UsersMapper;
 import com.example.wiki.service.UsersService;
 import io.jsonwebtoken.JwtBuilder;
@@ -14,10 +16,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Scope("singleton")
-public class UserServiceImpl implements UsersService {
+public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements UsersService {
 
     @Autowired
     private UsersMapper usersMapper;
@@ -69,5 +72,17 @@ public class UserServiceImpl implements UsersService {
                 return new ResultVO(10001,"登录失败，密码错误",null);
             }
         }
+    }
+
+    @Override
+    public ResultVO queryUserOrder(String userId){
+
+        List<UserDto> userDtoList = usersMapper.queryUserOrder(userId);
+        if (userDtoList.isEmpty()){
+            return new ResultVO(10001,"用户没有订单",null);
+        }else {
+            return new ResultVO(10000,"查询成功",userDtoList);
+        }
+
     }
 }
