@@ -3,12 +3,16 @@ package com.example.wiki.controller;
 import com.example.wiki.dto.RegisterRequestDto;
 import com.example.wiki.common.vo.ResultVO;
 import com.example.wiki.service.UsersService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 
 @RestController
 @RequestMapping("/v1/user")
+@Validated
 public class UsersController {
     @Resource
     private UsersService usersService;
@@ -20,7 +24,7 @@ public class UsersController {
     }
 
     @PostMapping("/register")
-    public ResultVO register(@RequestBody RegisterRequestDto registerRequestDto) {
+    public ResultVO register(@Valid  @RequestBody RegisterRequestDto registerRequestDto) {
         ResultVO resultVO = usersService.userRegister(registerRequestDto.getUsername(),registerRequestDto.getPassword());
         return resultVO;
     }
