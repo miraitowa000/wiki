@@ -13,4 +13,6 @@ public interface UsersService extends IService<Users> {
     public ResultVO userLogin(String username, String password);
 
     public ResultVO queryUserOrder(String userId);
+
+    public ResultVO updateUser(Users user);
 }

@@ -1,5 +1,6 @@
 package com.example.wiki.interceptor;
 
+import com.example.wiki.common.utils.ThreadLocalUtils;
 import com.example.wiki.common.vo.ResultVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -21,7 +22,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (method.equals("OPTIONS")) {
             return true;
         }
-        String token = request.getHeader("token");
+        String token = request.getHeader("Authorization");
         if (token == null) {
             ResultVO resultVO = new ResultVO(401, "请先登录", null);
             doResponse(response, resultVO);
@@ -58,6 +59,11 @@ public class LoginInterceptor implements HandlerInterceptor {
         printWriter.print(s);
         printWriter.flush();
         printWriter.close();
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        ThreadLocalUtils.remove();
     }
 }
 

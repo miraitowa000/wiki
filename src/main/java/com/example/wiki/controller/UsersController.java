@@ -1,5 +1,6 @@
 package com.example.wiki.controller;
 
+import com.example.wiki.domain.Users;
 import com.example.wiki.dto.RegisterRequestDto;
 import com.example.wiki.common.vo.ResultVO;
 import com.example.wiki.service.UsersService;
@@ -32,6 +33,12 @@ public class UsersController {
     @GetMapping("/order")
     public ResultVO queryUserOrder(@RequestParam("userId") String userId) {
         ResultVO resultVO = usersService.queryUserOrder(userId);
+        return resultVO;
+    }
+
+    @PostMapping("/update")
+    public ResultVO updateUser(@RequestBody Users user) {
+        ResultVO resultVO = usersService.updateUser(user);
         return resultVO;
     }
 }

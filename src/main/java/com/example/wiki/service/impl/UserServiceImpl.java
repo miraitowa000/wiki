@@ -1,5 +1,6 @@
 package com.example.wiki.service.impl;
 
+import com.auth0.jwt.JWT;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.wiki.common.utils.MD5Utils;
 import com.example.wiki.domain.Users;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -84,5 +86,12 @@ public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements 
             return new ResultVO(10000,"查询成功",userDtoList);
         }
 
+    }
+
+    @Override
+    public ResultVO updateUser(Users user) {
+        user.setUserModtime(new Date());
+        usersMapper.update(user);
+        return new ResultVO(10000,"更新成功",null);
     }
 }

@@ -43,7 +43,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <select id="queryUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select user_id, username, password, nickname, realname, user_img, user_mobile, user_email, 
+    select user_id, username, password, nickname, realname, user_img, user_mobile, user_email,
     user_sex, user_birth, user_regtime, user_modtime
     from users
     where username = #{username,jdbcType=VARCHAR}
