@@ -7,6 +7,10 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.UnsupportedJwtException;
+import lombok.var;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -16,6 +20,8 @@ import java.io.PrintWriter;
 
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String method = request.getMethod();
@@ -29,6 +35,13 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }else {
             try {
+                ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
+                String redistoken = valueOperations.get(token);
+                if(redistoken == null){
+                    ResultVO resultVO = new ResultVO(401, "请先登录", null);
+                    doResponse(response, resultVO);
+                    return false;
+                }
                 JwtParser jwtParser = Jwts.parser();
                 jwtParser.setSigningKey("secret");
                 jwtParser.parseClaimsJws(token);

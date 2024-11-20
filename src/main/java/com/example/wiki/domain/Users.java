@@ -3,10 +3,15 @@ package com.example.wiki.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.wiki.anno.Sex;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.Date;
 @Getter
@@ -14,12 +19,14 @@ import java.util.Date;
 @TableName("users")
 public class Users {
     @TableId(type= IdType.AUTO)
+    @NotNull
     private Integer userId;
 
     private String username;
     @JsonIgnore
     private String password;
-
+    @NotEmpty
+    @Pattern(regexp = "^\\S{1,10}$")
     private String nickname;
 
     private String realname;
@@ -27,9 +34,11 @@ public class Users {
     private String userImg;
 
     private String userMobile;
-
+    @NotEmpty
+    @Email
     private String userEmail;
-
+    @Sex
+    @NotEmpty
     private String userSex;
 
     private Date userBirth;

@@ -1,5 +1,6 @@
 package com.example.wiki.controller;
 
+import com.example.wiki.domain.PageBean;
 import com.example.wiki.domain.Users;
 import com.example.wiki.dto.RegisterRequestDto;
 import com.example.wiki.common.vo.ResultVO;
@@ -37,7 +38,7 @@ public class UsersController {
     }
 
     @PostMapping("/update")
-    public ResultVO updateUser(@RequestBody Users user) {
+    public ResultVO updateUser(@RequestBody @Validated Users user) {
         ResultVO resultVO = usersService.updateUser(user);
         return resultVO;
     }

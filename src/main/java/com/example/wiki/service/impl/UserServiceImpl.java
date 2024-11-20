@@ -13,12 +13,14 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Scope("singleton")
@@ -26,6 +28,8 @@ public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements 
 
     @Autowired
     private UsersMapper usersMapper;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
     @Transactional
     public ResultVO userRegister(String username, String password) {
         synchronized (this) {
@@ -69,6 +73,7 @@ public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements 
                         .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
                         .signWith(SignatureAlgorithm.HS256, "secret")
                         .compact();
+                redisTemplate.opsForValue().set("token",token,20, TimeUnit.HOURS);
                 return new ResultVO(10000,token,user);
             }else {
                 return new ResultVO(10001,"登录失败，密码错误",null);
