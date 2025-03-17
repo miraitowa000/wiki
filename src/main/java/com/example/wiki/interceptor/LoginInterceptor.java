@@ -35,13 +35,13 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }else {
             try {
-                ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
-                String redistoken = valueOperations.get(token);
-                if(redistoken == null){
-                    ResultVO resultVO = new ResultVO(401, "请先登录", null);
-                    doResponse(response, resultVO);
-                    return false;
-                }
+//                ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
+//                String redistoken = valueOperations.get(token);
+//                if(redistoken == null){
+//                    ResultVO resultVO = new ResultVO(401, "请先登录", null);
+//                    doResponse(response, resultVO);
+//                    return false;
+//                }
                 JwtParser jwtParser = Jwts.parser();
                 jwtParser.setSigningKey("secret");
                 jwtParser.parseClaimsJws(token);

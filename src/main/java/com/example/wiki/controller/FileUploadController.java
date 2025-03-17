@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 @RestController
 public class FileUploadController {
-    private static final String UPLOAD_PATH = "C:\\Users\\16340\\Desktop\\upload";
+    private static final String UPLOAD_PATH = "opt/metersphere/conf";
     @PostMapping("/upload")
     public ResultVO upload(MultipartFile file ) {
         if(file.isEmpty()){
