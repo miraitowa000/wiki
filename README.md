@@ -2,8 +2,6 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Language](https://img.shields.io/badge/Language-Java-orange.svg)](#)
-[![Framework](https://img.shields.io/badge/Framework-TestNG-green.svg)](#)
-[![Report](https://img.shields.io/badge/Report-Allure-brightgreen.svg)](#)
 
 ## 项目概述
 
@@ -162,8 +160,13 @@ mvn mybatis-generator:generate
 
 ## 许可证
 
-[添加项目许可证信息]
+本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件
 
-## 联系方式
+## 📞 联系方式
 
-[添加联系方式信息]
+- 项目维护者：[张宇]
+- 电子邮件：[miraitowa0805@gmail.com]
+
+---
+
+⭐️ 如果这个项目对您有帮助，请给它一个星标！
